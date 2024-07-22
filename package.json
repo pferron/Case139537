@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "aws-sdk-client-mock": "^3.0.0",
-    "aws-sdk-client-mock-jest": "^3.0.0",
+    "aws-sdk-client-mock-jest": "^4.0.0",
     "aws-sdk-mock": "^5.8.0",
     "chance": "^1.1.11",
     "cross-env": "^7.0.3",
