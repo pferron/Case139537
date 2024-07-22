@@ -7,7 +7,6 @@
   },
   "scanSettingsSAST": {
     "enableScan": true,
-    "prConcurrentLimit":20,
     "scanPullRequests": true,
     "incrementalScan": true,
     "baseBranches": [],
@@ -32,6 +31,7 @@
   },
   "remediateSettings": {
     "enableRenovate": "true",
+    "prConcurrentLimit":20,
     "workflowRules": {
       "enabled": true
     }
