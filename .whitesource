@@ -31,10 +31,49 @@
   },
   "remediateSettings": {
     "enableRenovate": "true",
-    "prConcurrentLimit":20,
-    "workflowRules": {
-      "enabled": true
-    }
+    "extends": ["config:base"],
+    "packageRules": [
+      {
+        "description": "Minor/Patch updates to Drone plugin containers",
+        "matchFileNames": [".drone.yaml"],
+        "matchDatasources": ["docker"],
+        "matchUpdateTypes": ["minor", "patch"],
+        "automerge": true
+      },
+      {
+        "matchDepTypes": ["devDependencies"],
+        "matchUpdateTypes": ["minor", "patch"],
+        "automerge": true
+      },
+      {
+        "matchDepTypes": ["dependencies"],
+        "matchUpdateTypes": ["minor", "patch"],
+        "automerge": true
+      },
+      {
+        "matchDatasources": ["docker"],
+        "semanticCommitType": "ci",
+        "matchPackageNames": ["node"],
+        "versioning": "node"
+      },
+      {
+        "matchUpdateTypes": ["patch"],
+        "schedule": ["every 8 hours"]
+      },
+      {
+        "matchUpdateTypes": ["minor"],
+        "schedule": ["on Monday"]
+      },
+      {
+        "matchUpdateTypes": ["major"],
+        "schedule": ["on the first day of the month"]
+      },
+      {
+        "matchDatasources": ["docker"],
+        "matchDepNames": ["isgdevops/iam-autopilot"],
+        "replacementName": "johndeere/iam-autopilot"
+      }
+    ]
   },
    "imageSettings":{
        "imageTracing":{
